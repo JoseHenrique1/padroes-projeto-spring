@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User buscarPorId(Long id) {
-        // Buscar Cliente por ID.
         Optional<User> user = userRepository.findById(id);
         return user.orElse(null);
     }
@@ -37,7 +36,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void atualizar(Long id, User cliente) {
-        // Buscar Cliente por ID, caso exista:
         Optional<User> userBd = userRepository.findById(id);
         if (userBd.isPresent()) {
             salvarUser(cliente);
@@ -46,7 +44,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deletar(Long id) {
-        // Deletar Cliente por ID.
         userRepository.deleteById(id);
     }
 
